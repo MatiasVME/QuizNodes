@@ -52,12 +52,11 @@ func _ready():
 	if self.debug:
 		connect("correct_answer", self, "_on_correct_answer")
 
-
 # Métodos Públicos
 #
 
 func select_answer(num_answer):
-	if num_answer == is_correct_answer[num_answer]:
+	if is_correct_answer[num_answer]:
 		current_num_correct_answer += 1
 	else:
 		current_num_correct_answer -= 1
@@ -95,6 +94,9 @@ func get_question():
 func get_type():
 	return type
 	
+func get_alternative(index):
+	return alternatives[index]
+
 func get_result():
 	return result
 
