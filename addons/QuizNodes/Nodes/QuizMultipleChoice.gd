@@ -51,6 +51,7 @@ var points
 func _ready():
 	if self.debug:
 		connect("correct_answer", self, "_on_correct_answer")
+	
 
 # Métodos Públicos
 #
@@ -81,6 +82,8 @@ func add_alternative(alternative, is_correct):
 		4:
 			type = Type.FOUR_OPTIONS
 	
+func unsort_alternatves():
+	pass
 
 # Setters/Getters
 #

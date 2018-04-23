@@ -18,3 +18,4 @@ func _on_True_pressed():
 func _on_False_pressed():
 	$TrueOrFalse.select_answer(1)
 	$Result.text = str("¿Respuesta correta?: ", $TrueOrFalse.get_result())
+	

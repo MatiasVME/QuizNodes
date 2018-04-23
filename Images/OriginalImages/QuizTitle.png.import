@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/QuizMultipleChoice.png-75cc5d5c69c208df371769fa0955ec0f.stex"
+path="res://.import/QuizTitle.png-206831107069c28a297137124becd192.stex"
 
 [deps]
 
-source_file="res://addons/QuizNodes/Icons/Original/QuizMultipleChoice.png"
-dest_files=[ "res://.import/QuizMultipleChoice.png-75cc5d5c69c208df371769fa0955ec0f.stex" ]
+source_file="res://Images/OriginalImages/QuizTitle.png"
+dest_files=[ "res://.import/QuizTitle.png-206831107069c28a297137124becd192.stex" ]
 
 [params]
 
