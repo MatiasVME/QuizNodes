@@ -9,7 +9,8 @@ func _ready():
 	$FourOptions.add_alternative("La instancia de una clase", true) # Alternativa 2
 	$FourOptions.add_alternative("Un evento", false) # Alternativa 3
 	
-	$FourOptions.unsort_alternatves()
+	# Desordena las alternativas
+	$FourOptions.disarray_alternatves()
 	
 	$Question.text = $FourOptions.get_question()
 	$Option1.text = $FourOptions.get_alternative(0)

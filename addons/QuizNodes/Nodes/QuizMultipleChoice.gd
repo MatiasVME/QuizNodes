@@ -83,7 +83,7 @@ func add_alternative(alternative, is_correct):
 		4:
 			type = Type.FOUR_OPTIONS
 	
-func unsort_alternatves():
+func disarray_alternatves():
 	var old_order_alternatives = alternatives.duplicate()
 	alternatives.shuffle()
 	
