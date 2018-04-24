@@ -49,10 +49,11 @@ signal incorrect_answer
 var points
 
 func _ready():
+	randomize()
+	
 	if self.debug:
 		connect("correct_answer", self, "_on_correct_answer")
 	
-
 # Métodos Públicos
 #
 
@@ -83,7 +84,14 @@ func add_alternative(alternative, is_correct):
 			type = Type.FOUR_OPTIONS
 	
 func unsort_alternatves():
-	pass
+	var old_order_alternatives = alternatives.duplicate()
+	alternatives.shuffle()
+	
+	var old_order_is_correct_answer = is_correct_answer.duplicate()
+	
+	for i in range(0, alternatives.size()):
+		var pos_old = alternatives.find(old_order_alternatives[i]) 
+		is_correct_answer[pos_old] = old_order_is_correct_answer[i]
 
 # Setters/Getters
 #

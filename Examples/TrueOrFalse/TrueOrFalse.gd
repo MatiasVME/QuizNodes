@@ -5,7 +5,7 @@ func _ready():
 	# TRUE_OR_FALSE
 	$TrueOrFalse.set_question("La esquina de la tierra es la Isla de pascua, ubicada en chile.")
 	$TrueOrFalse.add_alternative("Verdadero", false) # Alternativa 0
-	$TrueOrFalse.add_alternative("Falso", true) # Alternativa 1
+	$TrueOrFalse.add_alternative("Falso", true) # Alternativa 1 (es la correcta)
 	
 	$Question.text = $TrueOrFalse.get_question()
 	$True.text = $TrueOrFalse.get_alternative(0)
