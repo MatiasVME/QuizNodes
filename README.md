@@ -6,10 +6,13 @@
 
 Plugin de Godot Engine para la creación de Quiz Personalizados. Añade nuevos nodos para la creación de diferentes tipos de Quiz.
 
+# Preview (QuizDynamic)
+[Preview](https://youtu.be/Vbr4BTaD6qU)
+
 ## ¿Qué nodos o custom-type añade?
 
-* QuizMultipleChoice : Quiz de selección multiple o simple
-* QuizDynamic : Quiz de selección multiple o simple cargado desde un json (Requiere PersistenceNode)
+* ![QuizMultipleChoice](https://raw.githubusercontent.com/MatiasVME/QuizNodes/master/Images/Icons/QuizMultipleChoise.png) QuizMultipleChoice : Quiz de selección multiple o simple
+* ![QuizDynamic](https://raw.githubusercontent.com/MatiasVME/QuizNodes/master/Images/Icons/QuizDynamic.png) QuizDynamic : Quiz de selección multiple o simple cargado desde un json (Requiere PersistenceNode)
 
 ## Instalación
 
