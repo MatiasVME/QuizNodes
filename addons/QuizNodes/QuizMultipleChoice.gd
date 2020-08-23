@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2018 Matías Muñoz Espinoza
+# Copyright (c) 2018 - 2020 Matías Muñoz Espinoza
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,25 +20,26 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-tool
-extends "QuizBase.gd"
+extends QuizBase
+
+class_name QuizMultipleChoice, "QuizMultipleChoice.png" 
 
 enum Type {TRUE_OR_FALSE = 2, THREE_OPTIONS, FOUR_OPTIONS}
 export (Type) var type = Type.TRUE_OR_FALSE setget , get_type 
 
 # Pregunta str
-var question = "" setget set_question, get_question
+var question := "" setget set_question, get_question
 # Array de str de las alternativas
-var alternatives = []
+var alternatives := []
 # Array que dice que respuesta es correcta o no
-var is_correct_answer = []
+var is_correct_answer := []
 
 # Número máximo de respuestas correctas (normalmente es una respuesta correcta).
 # Pero pueden existir más de una respuesta correcta.
-var max_num_correct_answer = 0
+var max_num_correct_answer := 0
 # Numero actual de respuestas correctas ¿Cuántas respuestas correctas tiene
 # en este momento?
-var current_num_correct_answer = 0
+var current_num_correct_answer := 0
 # Como resultado de la pregunta y las respuestas, ¿Es correcto?
 var result = false setget , get_result
 

@@ -6,13 +6,47 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=3
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "JSONBeautifier",
+"language": "GDScript",
+"path": "res://addons/json_beautifier/json_beautifier.gd"
+}, {
+"base": "Node",
+"class": "Persistence",
+"language": "GDScript",
+"path": "res://addons/PersistenceNode/persistence_node.gd"
+}, {
+"base": "Node",
+"class": "QuizBase",
+"language": "GDScript",
+"path": "res://addons/QuizNodes/QuizBase.gd"
+}, {
+"base": "QuizBase",
+"class": "QuizDynamic",
+"language": "GDScript",
+"path": "res://addons/QuizNodes/QuizDynamic.gd"
+}, {
+"base": "QuizBase",
+"class": "QuizMultipleChoice",
+"language": "GDScript",
+"path": "res://addons/QuizNodes/QuizMultipleChoice.gd"
+} ]
+_global_script_class_icons={
+"JSONBeautifier": "",
+"Persistence": "res://addons/PersistenceNode/icon.png",
+"QuizBase": "",
+"QuizDynamic": "res://addons/QuizNodes/QuizDynamic.png",
+"QuizMultipleChoice": "res://addons/QuizNodes/QuizMultipleChoice.png"
+}
 
 [application]
 
 config/name="QuizNodes"
-run/main_scene="res://Examples/TrueOrFalse/TrueOrFalse.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://Examples/QuizDynamic/QuizDynamic.tscn"
+config/icon="res://Images/OriginalImages/QuizTitle.png"
 
 [display]
 
@@ -23,7 +57,7 @@ window/stretch/aspect="keep"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "QuizNodes" )
+enabled=PoolStringArray( "PersistenceNode", "QuizNodes" )
 
 [rendering]
 

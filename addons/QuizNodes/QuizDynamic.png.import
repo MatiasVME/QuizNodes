@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/QuizMultipleChoice.png-01163a7250b1026127179f0883181a1c.stex"
+path="res://.import/QuizDynamic.png-c6481d7ced7b8d1f7320bd448deb5e7e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/OriginalImages/QuizMultipleChoice.png"
-dest_files=[ "res://.import/QuizMultipleChoice.png-01163a7250b1026127179f0883181a1c.stex" ]
+source_file="res://addons/QuizNodes/QuizDynamic.png"
+dest_files=[ "res://.import/QuizDynamic.png-c6481d7ced7b8d1f7320bd448deb5e7e.stex" ]
 
 [params]
 

@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2018 Matías Muñoz Espinoza
+# Copyright (c) 2018 - 2020 Matías Muñoz Espinoza
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,10 @@
 
 extends Node
 
-export (bool) var debug = true
+class_name QuizBase
+
+export (bool) var debug := true
 
 func debug(message, something1 = "", something2 = ""):
 	if debug:
-		print("[RPGElements] ", message, " ", something1, " ", something2)
+		print("[QuizNodes] ", message, " ", something1, " ", something2)

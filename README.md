@@ -8,9 +8,8 @@ Plugin de Godot Engine para la creación de Quiz Personalizados. Añade nuevos n
 
 ## ¿Qué nodos o custom-type añade?
 
-![MultipleChoice](https://github.com/MatiasVME/QuizNodes/blob/master/Images/OriginalImages/QuizMultipleChoice.png)
-
-* QuizMultipleChoice
+* QuizMultipleChoice : Quiz de selección multiple o simple
+* QuizDynamic : Quiz de selección multiple o simple cargado desde un json (Requiere PersistenceNode)
 
 ## Instalación
 
@@ -18,7 +17,8 @@ Plugin de Godot Engine para la creación de Quiz Personalizados. Añade nuevos n
 2. Descomprimir (Si es que lo descargaste como ZIP)
 3. Crear una carpeta addons en la raíz de tu proyecto (si es que esta no existe)
 4. Copiar la carpeta "QuizNodes" (que esta en la carpeta descargada) a dentro de la carpeta addons creada del paso 3.
-5. Activar el plugin en: Proyecto>Ajustes del proyecto>Plugins
+5. Si es que va a utilizar QuizDynamic, añadir también a la carpeta addons el PersistenceNode y json_beautifier.
+6. Activar los plugin necesarios en: Proyecto > Ajustes del proyecto > Plugins
 
 ## Ejemplos de como se usa (Vease también la carpeta Examples)
 
@@ -117,3 +117,82 @@ func _on_Option4_pressed():
 	$FourOptions.select_answer(3)
 	$Answer.text = str("¿Respuesta correta?: ", $FourOptions.get_result())
 ```
+
+### Ejemplo: QuizDynamic (Extraer preguntas de un json creado)
+
+```gdscript
+extends Control
+
+func _ready():
+	$QuizDynamic.create_test()
+
+	$QuizDynamic.read_from($QuizDynamic.QUESTION_TEST, "Category1", "SubCategory1")
+	
+	$QuizDynamic.connect("get_question", self, "_on_get_question")
+	$QuizDynamic.connect("correct_answer", self, "_on_correct_answer")
+	$QuizDynamic.connect("incorrect_answer", self, "_on_incorrect_answer")
+	
+	new_question()
+
+
+func new_question():
+	$VBox/Question.text = $QuizDynamic.get_question()
+
+
+func disable_all(disabled := true):
+	for button in $VBox/Grid.get_children():
+		button.disabled = disabled
+		
+
+func wait_for_next_question():
+	yield(get_tree().create_timer(3.0), "timeout")
+		
+	$QuizDynamic.next_question()
+	new_question()
+	disable_all(false)
+
+
+func _on_get_question(num):
+	$VBox/Grid/Opt1.text = $QuizDynamic.get_answer(1)
+	$VBox/Grid/Opt2.text = $QuizDynamic.get_answer(2)
+	$VBox/Grid/Opt3.text = $QuizDynamic.get_answer(3)
+	$VBox/Grid/Opt4.text = $QuizDynamic.get_answer(4)
+
+
+func _on_correct_answer():
+	$VBox/Question.text = "Is Correct!"
+	disable_all()
+	
+	if not $QuizDynamic.is_last_question():
+		wait_for_next_question()
+	else:
+		$VBox/Question.text = "Bye!!"
+
+
+func _on_incorrect_answer():
+	$VBox/Question.text = "Is Incorrect!" 
+	disable_all()
+	
+	if not $QuizDynamic.is_last_question():
+		wait_for_next_question()
+	else:
+		$VBox/Question.text = "Bye!!"
+		yield(get_tree().create_timer(3.0), "timeout")
+
+func _on_Opt1_pressed():
+	$QuizDynamic.is_correct(1)
+
+
+func _on_Opt2_pressed():
+	$QuizDynamic.is_correct(2)
+
+
+func _on_Opt3_pressed():
+	$QuizDynamic.is_correct(3)
+
+
+func _on_Opt4_pressed():
+	$QuizDynamic.is_correct(4)
+```
+
+A futuro se añadirán mas características.

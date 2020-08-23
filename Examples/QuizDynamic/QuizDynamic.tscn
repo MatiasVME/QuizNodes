@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Examples/QuizDynamic/QuizDynamic.gd" type="Script" id=1]
+[ext_resource path="res://addons/QuizNodes/QuizDynamic.gd" type="Script" id=2]
+
+[node name="QuizPeristence" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuizDynamic" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Question" type="Label" parent="VBox"]
+margin_top = 89.0
+margin_right = 512.0
+margin_bottom = 103.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "¿Cual es la esquina de la tierra?"
+align = 1
+
+[node name="Grid" type="GridContainer" parent="VBox"]
+margin_top = 196.0
+margin_right = 512.0
+margin_bottom = 300.0
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Opt1" type="Button" parent="VBox/Grid"]
+margin_right = 254.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+text = "Option1"
+
+[node name="Opt2" type="Button" parent="VBox/Grid"]
+margin_left = 258.0
+margin_right = 512.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+text = "Option2"
+
+[node name="Opt3" type="Button" parent="VBox/Grid"]
+margin_top = 54.0
+margin_right = 254.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+text = "Option3"
+
+[node name="Opt4" type="Button" parent="VBox/Grid"]
+margin_left = 258.0
+margin_top = 54.0
+margin_right = 512.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+text = "Option4"
+[connection signal="pressed" from="VBox/Grid/Opt1" to="." method="_on_Opt1_pressed"]
+[connection signal="pressed" from="VBox/Grid/Opt2" to="." method="_on_Opt2_pressed"]
+[connection signal="pressed" from="VBox/Grid/Opt3" to="." method="_on_Opt3_pressed"]
+[connection signal="pressed" from="VBox/Grid/Opt4" to="." method="_on_Opt4_pressed"]
